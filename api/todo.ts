@@ -1,24 +1,22 @@
 import { supabase } from '../utils/supabase';
-import { getUser } from './auth';
+import { User } from '@supabase/supabase-js';
 
-const user = getUser();
-
-export const addTodo = async (title: string) => {
+export const addTodo = async (title: string, userId: string) => {
   await supabase.from('todo').insert([
     {
       title,
       done: false,
-      user: user,
+      user: userId,
     },
   ]);
 };
 
-export const getTodos = async () => {
+export const getTodos = async (userId: string) => {
   const data = await supabase
     .from('todo')
     .select()
     .match({
-      user: user,
+      user: userId,
     })
     .order('id');
   return data;

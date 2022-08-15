@@ -1,19 +1,31 @@
+import { User } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
+import { getUser } from '../../api/auth';
 import { getTodos } from '../../api/todo';
 import TodoItem from './TodoItem';
 
 export default function TodoList() {
   const [todos, setTodos] = useState();
 
+  const [user, setUser] = useState<User | null>(null);
+  useEffect(() => {
+    const User = async () => {
+      const data = await getUser();
+      setUser(data);
+    };
+
+    User();
+  }, []);
+
   useEffect(() => {
     const getData = async () => {
-      const data: any = await getTodos();
+      const data: any = await getTodos(user?.id);
       console.log(data.data);
       setTodos(data.data);
     };
 
     getData();
-  }, []);
+  }, [user]);
 
   return (
     <>
