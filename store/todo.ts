@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
-import { User } from '@supabase/supabase-js';
+import ITodo from '../types/todo';
 
-const todoState = atom<User>({
+const todoState = atom<ITodo[]>({
   key: 'todoState',
   default: null,
 });
