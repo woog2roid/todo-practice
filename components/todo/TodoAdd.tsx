@@ -1,15 +1,12 @@
 import { User } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { getUser } from '../../api/auth';
 import { addTodo, getTodos } from '../../api/todo';
+import userState from '../../store/user';
 
 export default function TodoAdd() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const data = getUser();
-    setUser(data);
-  }, []);
+  const user = useRecoilValue(userState);
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
@@ -20,7 +17,6 @@ export default function TodoAdd() {
 
   return (
     <form onSubmit={onSubmit}>
-      투두 애드 입니다.
       <input name="todo" />
     </form>
   );
