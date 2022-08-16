@@ -27,8 +27,7 @@ export default function TodoList() {
       <div>투두 리스트 입니다.</div>
       {todos !== undefined ? (
         todos?.map((todo) => {
-          return <TodoItem key={todo.id
-          } title={todo.title} />;
+          return <TodoItem key={todo.id} todo={todo} />;
         })
       ) : (
         <></>

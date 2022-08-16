@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@supabase/supabase-js": "^1.35.6",
     "next": "12.2.5",
