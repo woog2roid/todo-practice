@@ -2,7 +2,7 @@
 
 > NextJS + Recoil + Supabase로 구글 로그인이 가능한 투두 예제 제작
 
-[실제 실행](https://todo-practice-boszi.run.goorm.io/#)
+[실제 실행](https://todo-practice-boszi.run.goorm.io/#): 현재는 서버를 꺼둔 상황입니다.
 
 ### 참고사항
 
